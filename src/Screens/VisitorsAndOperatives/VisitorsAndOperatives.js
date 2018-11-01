@@ -1,7 +1,6 @@
 /* Core */
 import React, { Component } from 'react';
 
-
 import { 
 	Container, 
 	Content, 
@@ -15,7 +14,6 @@ import {
 	Footer, 
 	FooterTab 
 } from 'native-base';
-
 
 export default class VisitorsAndOperatives extends Component {
 

@@ -32,28 +32,26 @@ export default class VisitorsToSite extends Component {
           <Right><Text>{item.quantity}</Text></Right>
         <ListItem/>
         )
-    })
-    this.setState({addedVisitors})
+    });
+    this.setState({addedVisitors});
   }
 
-  const currentTitle = null;
-  const currentQuantity = null;
-
-  let index = 0;
-    const data = 
-        [
-          {label: 'dummy data 1', value: '1', key: index++},
-          {label: 'dummy data 2', value: '2', key: index++},
-          {label: 'dummy data 3', value: '3', key: index++},
-        ]
-
-  onClick(a, b){
+  onChange(a, b){
     alert('a: ', a)
     alert('b: ', b)
   }
 
 
   render() {
+
+    let index = 0;
+    const data = 
+        [
+          {label: 'dummy data 1', value: '1', key: index++},
+          {label: 'dummy data 2', value: '2', key: index++},
+          {label: 'dummy data 3', value: '3', key: index++},
+        ];
+
     return (
       <Container>
 	      <Content>
@@ -62,8 +60,8 @@ export default class VisitorsToSite extends Component {
               {this.state.addedVisitors}
             </List>
           </Form>
-          <Selector items={data} onClick={onClick}/>
-          <Selector items={data} onClick={onClick}/>
+          <Selector items={data} onChange={onChange}/>
+          <Selector items={data} onChange={onChange}/>
 	      	<Button onPress={()=>{}} title="Click to add visitors to site"/>
       	</Content>
       </Container>

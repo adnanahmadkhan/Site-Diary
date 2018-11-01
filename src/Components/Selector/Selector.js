@@ -20,7 +20,7 @@ export default class Selector extends React.Component {
         <ModalSelector
           data={this.props.items}
           initValue="select value"
-          onChange={(option) => { this.onValueChange(option) }}
+          onChange={(option) => { this.props.onChange(1,2) }}
         />
       </View>
     );
