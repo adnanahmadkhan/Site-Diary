@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 /* Presentational */
 import { View } from 'react-native';
 
-
 import { 
 	Container, 
 	Content, 
@@ -58,8 +57,8 @@ export default class AccidentsAndIssues extends Component {
       	</Content>
       	<Footer>
             <FooterTab>
-              <Button onPress={() => {this.props.navigation.navigate('GenerateReport')}} full>
-                <Text>Generate report</Text>
+              <Button onPress={() => {this.props.navigation.navigate('IssuePictures')}} full>
+                <Text>Issues Images</Text>
                 <Icon name="ios-arrow-forward"/>
               </Button>
             </FooterTab>

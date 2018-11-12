@@ -18,9 +18,19 @@ import Issues from '../../Screens/AccidentsAndIssues/Issues';
 import MaterialIssues from '../../Screens/AccidentsAndIssues/MaterialIssues';
 
 import ReportScreen from '../../Screens/Report';
+import IssuePictures from '../../Screens/IssuePictures';
+
 
 
 const AppStackNavigator = createStackNavigator({
+  //Remove this line && uncomment on line 32 for normal app flow
+  // OperativesToSite: OperativesToSite,
+  // Management: ManagementTeamScreen,
+  // PlantOnSite: PlantOnSite,
+  IssuePictures: IssuePictures,
+
+  /*-------------------------------------------------------------*/
+
   Welcome: WelcomeScreen,
   Weather: WeatherScreen,
 
@@ -37,6 +47,7 @@ const AppStackNavigator = createStackNavigator({
 
   GenerateReport: ReportScreen,
 
+  // IssuePictures: IssuePictures,
 })
 
 

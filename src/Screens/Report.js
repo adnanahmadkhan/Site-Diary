@@ -2,13 +2,15 @@
 import React, { Component } from 'react';
 
 /* Presentational */
-import { View } from 'react-native';
+import { View, Button } from 'react-native';
 
 
 export default class Report extends Component {
   render() {
     return (
-      <View />
+      <View>
+      	<Button title='Click to view report'/> 
+      </View>
     );
   }
 }

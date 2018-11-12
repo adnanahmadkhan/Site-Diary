@@ -9,15 +9,14 @@ import { colors } from '../Themes/colors';
 import ImageLoader from '../Components/ImageLoader/ImageLoader';
 
 export default class Welcome extends Component {
-	constructor(props){
-		super(props);
-		 setTimeout(()=>{
-              	props.navigation.navigate('Weather')
-         }, 5000);
-	}
-
 	static navigationOptions = {
 		header: null,
+	}
+
+	componentDidMount(){
+		setTimeout(()=>{
+            this.props.navigation.navigate('Weather')
+         }, 5000);
 	}
 
 	render() {
