@@ -10,7 +10,7 @@
     });
     this.setState({addedVisitors});
   }
-
+	//haha commented
   onChange(a, b){
     alert('a: ', a)
     alert('b: ', b)
