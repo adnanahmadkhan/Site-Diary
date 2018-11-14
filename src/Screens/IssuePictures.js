@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 /* Presentational */
-import { View, Button } from 'react-native';
+import { Button as ReactButton, Image, StyleSheet } from 'react-native';
 import { 
   Container, 
   Content,  
@@ -10,12 +10,15 @@ import {
   List, 
   ListItem, 
   Text, 
-  Body, 
-  Left, 
+  Left,
+  Input, 
   Footer, 
-  FooterTab 
+  FooterTab,
+  Label 
 } from 'native-base';
-import { ImagePicker, Permissions, Image } from 'expo';
+
+import { Button as NativeBaseButton } from 'native-base';
+import { ImagePicker, Permissions } from 'expo';
 
 export default class IssuePictures extends Component {
   static navigationOptions = {
@@ -27,7 +30,7 @@ export default class IssuePictures extends Component {
     this.state = {
       imageBuffer: [
         {
-          currentImage: null,
+          currentImage: undefined,
         },
       ]
     }
@@ -40,10 +43,8 @@ export default class IssuePictures extends Component {
       aspect: [4, 3],
     });
 
-    // console.log(result);
 
     if (!result.cancelled) {
-
       this.setState({ currentImage: result.uri });
     }
     else{
@@ -56,7 +57,7 @@ export default class IssuePictures extends Component {
     const { status } = await Permissions.askAsync(permissions);
 
     if(status === 'granted') {
-      await this._pickImage()
+      this._pickImage()
     }
   }
 
@@ -65,7 +66,7 @@ export default class IssuePictures extends Component {
     const { status } = await Permissions.askAsync(permissions);
 
     if(status === 'granted') {
-      await this._pickImage()
+      this._pickImage()
     }
   }
 
@@ -74,18 +75,36 @@ export default class IssuePictures extends Component {
     return (
       <Container>
       	<Content>
-          <Text>WHAT THE FUCK!</Text>
-	      	{
-            currentImage &&
-            <Image source={{ uri: currentImage }} style={{ width: 200, height: 200 }} />
-          }
+          <List>
+              <ListItem>
+                <Left>
+                    <ReactButton title={'From Camera'} onPress={this.pickFromCamera}/>
+                </Left>
+                <ReactButton title={'From Gallery'} onPress={this.pickFromGallery}/>
+              </ListItem>
+              {
+                currentImage &&
+                <ListItem style={styles.ImageContainer}>
+                  <Image source={{uri: currentImage}}  style={styles.Image}/>
+                </ListItem>
+              }
+
+              
+                <Left> <Label>Description </Label> </Left>
+                <Input
+                  multiline={true}
+                  numberOfLines={4}
+                  
+                />
+            
+           </List>
       	</Content>
         <Footer>
           <FooterTab>
-            <Button onPress={() => {this.props.navigation.navigate('GenerateReport')}} full>
+            <NativeBaseButton onPress={() => {this.props.navigation.navigate('GenerateReport')}} full>
               <Text>Generate Report</Text>
               <Icon name="ios-arrow-forward"/>
-            </Button>
+            </NativeBaseButton>
           </FooterTab>
         </Footer>
       </Container>
@@ -93,3 +112,14 @@ export default class IssuePictures extends Component {
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  Image: {
+    width: 200, 
+    height: 200,
+  },
+  ImageContainer:{
+    alignSelf: 'center',
+  },
+})

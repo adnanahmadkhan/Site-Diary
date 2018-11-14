@@ -14,6 +14,12 @@
   onChange(a, b){
     alert('a: ', a)
     alert('b: ', b)
-  }*/
+  }
+	      	<Text>{currentImage}</Text>
+  
+  
+
+  
+  */
 
   
